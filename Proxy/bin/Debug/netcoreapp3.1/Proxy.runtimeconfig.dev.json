@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\strio\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\strio\\.nuget\\packages"
+    ]
+  }
+}
