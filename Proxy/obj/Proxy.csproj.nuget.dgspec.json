@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SmartProxy\\Proxy\\Proxy.csproj": {}
+    "D:\\WebProxy\\Proxy\\Proxy.csproj": {}
   },
   "projects": {
-    "D:\\SmartProxy\\Proxy\\Proxy.csproj": {
+    "D:\\WebProxy\\Proxy\\Proxy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SmartProxy\\Proxy\\Proxy.csproj",
+        "projectUniqueName": "D:\\WebProxy\\Proxy\\Proxy.csproj",
         "projectName": "Proxy",
-        "projectPath": "D:\\SmartProxy\\Proxy\\Proxy.csproj",
-        "packagesPath": "C:\\Users\\strio\\.nuget\\packages\\",
-        "outputPath": "D:\\SmartProxy\\Proxy\\obj\\",
+        "projectPath": "D:\\WebProxy\\Proxy\\Proxy.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\WebProxy\\Proxy\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\strio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -51,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -63,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
