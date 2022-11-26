@@ -1,3 +1,4 @@
+using DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL;
 
 namespace MovieAPI
 {
@@ -19,6 +21,7 @@ namespace MovieAPI
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            DataBase.connString = Configuration.GetConnectionString("db");
         }
 
         public IConfiguration Configuration { get; }

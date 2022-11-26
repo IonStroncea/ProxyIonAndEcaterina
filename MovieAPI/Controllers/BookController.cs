@@ -14,11 +14,6 @@ namespace MovieAPI.Controllers
 
     public class BookController : ControllerBase
     {
-        private static readonly string[] Genres = new[]
-        {
-            "Poezie", "Istorie", "Biografie", "Autobiografie", "Thriller", "Science Fiction", "Romantic", "Detective", "Fictiune"
-        };
-
         private readonly ILogger<BookCollection> _logger;
 
         public BookController(ILogger<BookCollection> logger)
