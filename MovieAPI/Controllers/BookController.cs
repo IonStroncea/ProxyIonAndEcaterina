@@ -4,6 +4,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Common;
+using DAL;
 
 namespace MovieAPI.Controllers
 {
@@ -24,16 +26,36 @@ namespace MovieAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("/count")]
         public ActionResult GetBook([FromQuery] int count)
         {
-            BookCollection[] books =
-            {
-                new BookCollection() { Title = "Verity"},
-                new BookCollection() { Title = "Turnul"},
-                new BookCollection() { Title = "Pianistul"}
-            };
-            return Ok(books.Take(count));
+            IList<BookCollection> books = DataBase.GetBooksByCount(count);
+
+            return Ok(books);
+        }
+
+        [HttpGet("/title")]
+        public ActionResult GetBookByTitle([FromQuery] string title)
+        {
+            IList<BookCollection> books = DataBase.GetBooksByTitle(title);
+
+            return Ok(books);
+        }
+
+        [HttpGet("/author")]
+        public ActionResult GetBookByAuthor([FromQuery] string author)
+        {
+            IList<BookCollection> books = DataBase.GetBooksByAuthor(author);
+
+            return Ok(books);
+        }
+
+        [HttpGet("/gnere")]
+        public ActionResult GetBookByGenre([FromQuery] string genre)
+        {
+            IList<BookCollection> books = DataBase.GetBooksByGenre(genre);
+
+            return Ok(books);
         }
 
         [HttpPost]

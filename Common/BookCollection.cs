@@ -1,4 +1,4 @@
-﻿namespace MovieAPI
+﻿namespace Common
 {
 
     public class BookCollection
