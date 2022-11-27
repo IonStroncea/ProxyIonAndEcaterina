@@ -21,8 +21,16 @@ namespace MovieAPI.Controllers
             _logger = logger;
         }
 
+        [HttpGet("/id")]
+        public ActionResult GetBookById([FromQuery] int id)
+        {
+            IList<BookCollection> books = DataBase.GetBooksById(id);
+
+            return Ok(books.First());
+        }
+
         [HttpGet("/count")]
-        public ActionResult GetBook([FromQuery] int count)
+        public ActionResult GetBookByCount([FromQuery] int count)
         {
             IList<BookCollection> books = DataBase.GetBooksByCount(count);
 
@@ -45,7 +53,7 @@ namespace MovieAPI.Controllers
             return Ok(books);
         }
 
-        [HttpGet("/gnere")]
+        [HttpGet("/genre")]
         public ActionResult GetBookByGenre([FromQuery] string genre)
         {
             IList<BookCollection> books = DataBase.GetBooksByGenre(genre);
@@ -56,13 +64,26 @@ namespace MovieAPI.Controllers
         [HttpPost]
         public ActionResult CreateNewBook([FromBody] BookCollection newBook)
         {
-            return Created("", newBook);
+            BookCollection book = DataBase.CreateBook(newBook);
+
+            if(book)
+
+            return Created("", book);
         }
 
-        [HttpDelete("{idBook}")]
+        [HttpDelete()]
         public ActionResult DeleteBook(int id)
         {
-            return NoContent();
+            int result = DataBase.DeleteBook(id);
+
+            if (result == 1)
+            {
+                return NoContent();
+            }
+            else 
+            {
+                return NotFound();
+            }
         }
 
         //[HttpPatch("{idBook}")]
