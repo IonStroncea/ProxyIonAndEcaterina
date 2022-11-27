@@ -66,9 +66,15 @@ namespace MovieAPI.Controllers
         {
             BookCollection book = DataBase.CreateBook(newBook);
 
-            if(book)
-
-            return Created("", book);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Created("", book);
+            }
+            
         }
 
         [HttpDelete()]
