@@ -7,22 +7,21 @@
         {
           "Host": "localhost",
           "Port": 9001
-        }
-      ],
-      "UpstreamPathTemplate": "/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Update" ]
-    },
-    {
-      "DownstreamPathTemplate": "/{url}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
+        },
         {
           "Host": "localhost",
-          "Port": 9000
+          "Port": 9101
         }
       ],
       "UpstreamPathTemplate": "/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Update" ]
+      "UpstreamHttpMethod": [ "Get", "Post", "Delete", "Update" ],
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 10,
+        "Region": "bookCacheRegion"
+      }
     }
   ]
 }

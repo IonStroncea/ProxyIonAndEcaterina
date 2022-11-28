@@ -75,6 +75,8 @@ namespace DataBaseWriter
                 {
                     conn.Open();
 
+                    Console.WriteLine("Procedure : " + request.Procedure);
+
                     SqlCommand cmd = new SqlCommand(request.Procedure, conn);
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -87,6 +89,8 @@ namespace DataBaseWriter
                             JsonElement element = (JsonElement)param.value;
                             int result = (int)element.GetDecimal();
                             paramSql = new SqlParameter(param.name, result);
+
+                            Console.WriteLine("Int is" + result);
                         }
                         else
                         {
