@@ -1,36 +1,34 @@
-using DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
-using DAL;
-using System.Net.Http;
 
-namespace MovieAPI
+namespace DataBaseWriter
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-            DataBase.connString = Configuration.GetConnectionString("db");
-            DataBase.client = new HttpClient();
-        }
-
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            List<string> connectionStrings = new List<string>();
+
+            IEnumerable<IConfigurationSection> result = Configuration.GetSection("ConnectionStrings").GetChildren();
+
+            foreach (IConfigurationSection row in result)
+            {
+                connectionStrings.Add(row.Value);
+            }
+
+            services.AddSingleton<IDBWriter>(x => new DBWriter(connectionStrings));
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
@@ -42,6 +40,13 @@ namespace MovieAPI
                     Description = "A simple example to Implement Swagger UI",
                 });
             });
+        }
+
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,8 +65,6 @@ namespace MovieAPI
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Showing API V1");
             });
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -7,7 +7,7 @@ using System.Linq;
 using Common;
 using DAL;
 
-namespace MovieAPI.Controllers
+namespace MovieAPI2.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -80,7 +80,7 @@ namespace MovieAPI.Controllers
             {
                 return Created("", book);
             }
-            
+
         }
 
         [HttpDelete()]
@@ -93,7 +93,7 @@ namespace MovieAPI.Controllers
             {
                 return NoContent();
             }
-            else 
+            else
             {
                 return NotFound();
             }
