@@ -10,10 +10,10 @@ using Common;
 
 namespace DataBaseWriter
 {
-    public class DBWriter
+    public class DBWriter : IDBWriter
     {
-        public List<string> connectionStrings;
-        public List<DBRequest> requests = new List<DBRequest>();
+        private List<string> connectionStrings;
+        private List<DBRequest> requests = new List<DBRequest>();
 
         public DBWriter(List<string> connectionStrings)
         {

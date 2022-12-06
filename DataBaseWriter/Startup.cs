@@ -28,7 +28,7 @@ namespace DataBaseWriter
                 connectionStrings.Add(row.Value);
             }
 
-            services.AddSingleton<DBWriter>(x => new DBWriter(connectionStrings));
+            services.AddSingleton<IDBWriter>(x => new DBWriter(connectionStrings));
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>

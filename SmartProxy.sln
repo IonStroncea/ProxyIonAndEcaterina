@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DLL\DAL.csproj", "{8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseWriter", "DataBaseWriter\DataBaseWriter.csproj", "{17F2A15A-7B94-4AE8-A643-6F7FFA5ECFE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieAPI2", "MovieAPI2\MovieAPI2.csproj", "{B291CEE5-6210-48CF-A3BF-73A0D727BA02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieAPI2", "MovieAPI2\MovieAPI2.csproj", "{B291CEE5-6210-48CF-A3BF-73A0D727BA02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartProxyTest", "SmartProxyTest\SmartProxyTest.csproj", "{015C5CBF-EC4F-44DF-B954-1DCA6CF67889}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{B291CEE5-6210-48CF-A3BF-73A0D727BA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B291CEE5-6210-48CF-A3BF-73A0D727BA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B291CEE5-6210-48CF-A3BF-73A0D727BA02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{015C5CBF-EC4F-44DF-B954-1DCA6CF67889}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{015C5CBF-EC4F-44DF-B954-1DCA6CF67889}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{015C5CBF-EC4F-44DF-B954-1DCA6CF67889}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{015C5CBF-EC4F-44DF-B954-1DCA6CF67889}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

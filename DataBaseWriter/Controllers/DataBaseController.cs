@@ -12,9 +12,9 @@ namespace DataBaseWriter.Controllers
     [Route("api/[controller]")]
     public class DataBaseController : ControllerBase
     {
-        DBWriter writer;
+        IDBWriter writer;
 
-        public DataBaseController(DBWriter writer)
+        public DataBaseController(IDBWriter writer)
         {
             this.writer = writer;
         }
